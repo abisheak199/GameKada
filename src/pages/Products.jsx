@@ -1,6 +1,5 @@
 import { useGames } from '../hooks/useGames'
 import ProductCard from '../components/ProductCard'
-import { Filter, DollarSign } from 'lucide-react'
 
 export default function Products() {
   const {
@@ -50,7 +49,6 @@ export default function Products() {
 
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Filter size={16} className="text-gray-400" />
                   <span className="text-sm font-medium text-slate-700">Genre</span>
                 </div>
                 <div className="space-y-1">
@@ -82,7 +80,6 @@ export default function Products() {
 
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <DollarSign size={16} className="text-gray-400" />
                   <span className="text-sm font-medium text-slate-700">Max Price</span>
                 </div>
                 <input
