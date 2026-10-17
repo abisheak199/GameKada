@@ -66,19 +66,10 @@ export default function ProductDetail() {
               <p className="text-gray-600 leading-relaxed">{game.description}</p>
             </div>
 
-            {!game.inStock ? (
-              <button
-                disabled
-                className="w-full px-6 py-3 bg-gray-200 text-gray-500 font-medium rounded-lg cursor-not-allowed"
-              >
-                Out of Stock
-              </button>
-            ) : (
-              <button className="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
-                <ShoppingCart size={18} />
-                Add to Cart
-              </button>
-            )}
+            <button className="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+              <ShoppingCart size={18} />
+              Add to Cart
+            </button>
           </div>
         </div>
 
