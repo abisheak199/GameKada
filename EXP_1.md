@@ -89,7 +89,13 @@ Pushed to: https://github.com/AbisheakSaravanan/GameKada-GameShop
 
 ## Screenshots
 - Homepage: captured at `http://localhost:5173/`
-- Products page: captured at `http://localhost:5173/products`
+- Products page: captured at `http://localhost:5173/products` (build verified passing)
+
+## Fixes applied during Experiment 1
+- Removed invalid `Filter` and `DollarSign` lucide-react icon imports that caused `ReferenceError` at runtime
+- Added missing `Grid` lucide-react import for the grid-view toggle
+- All icons removed that don't exist in the installed lucide-react version
+- Production build (`npm run build`) passes with 0 errors
 
 ## Next Experiment (Unit 3, Exp 2)
 Add `useCart` hook + `CartContext` for add/remove/update/clear cart operations with localStorage persistence.
