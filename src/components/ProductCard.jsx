@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Star } from 'lucide-react'
+import { Star, ShoppingCart } from 'lucide-react'
+import { useCart } from '../context/CartContext'
 
 export default function ProductCard({ game }) {
+  const { addToCart } = useCart()
+  const handleAddToCart = () => addToCart(game)
   return (
     <article className="group rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition-shadow">
       <div className="aspect-[3/4] overflow-hidden rounded-md mb-3 bg-gray-100">
@@ -33,7 +36,14 @@ export default function ProductCard({ game }) {
           {game.rating}
         </span>
       </div>
-      {!game.inStock && (
+      {!game.inStock ? (
+        <button
+          onClick={handleAddToCart}
+          className="w-full mt-2 px-3 py-1.5 bg-indigo-600 text-white text-xs font-medium rounded hover:bg-indigo-700 transition-colors"
+        >
+          <ShoppingCart size={14} className="mr-1" /> Add to Cart
+        </button>
+      ) : (
         <span className="mt-2 inline-block px-2 py-0.5 text-xs font-medium text-red-600 bg-red-50 rounded">
           Out of Stock
         </span>
