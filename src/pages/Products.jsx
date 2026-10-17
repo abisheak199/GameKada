@@ -1,5 +1,6 @@
 import { useGames } from '../hooks/useGames'
 import ProductCard from '../components/ProductCard'
+import { Grid } from 'lucide-react'
 
 export default function Products() {
   const {
