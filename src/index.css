@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --text: #0f172a;
-  --text-h: #020617;
-  --bg: #ffffff;
-  --border: #94a3b8;
-  --code-bg: #f1f5f9;
-  --accent: #1d4ed8;
-  --accent-bg: rgba(29, 78, 216, 0.1);
-  --accent-border: rgba(29, 78, 216, 0.3);
-  --social-bg: #f1f5f9;
+  --text: #e2e8f0;
+  --text-h: #f8fafc;
+  --bg: #0f172a;
+  --border: #334155;
+  --code-bg: #1e293b;
+  --accent: #60a5fa;
+  --accent-bg: rgba(96, 165, 250, 0.15);
+  --accent-border: rgba(96, 165, 250, 0.3);
+  --social-bg: #1e293b;
   --shadow:
-    rgba(0, 0, 0, 0.15) 0 10px 15px -3px, rgba(0, 0, 0, 0.1) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -19,7 +19,7 @@
 
   font: 18px/160% var(--sans);
   letter-spacing: -0.01em;
-  color-scheme: light;
+  color-scheme: dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -32,23 +32,23 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #0f172a;
+    --text-h: #020617;
+    --bg: #ffffff;
+    --border: #94a3b8;
+    --code-bg: #f1f5f9;
+    --accent: #1d4ed8;
+    --accent-bg: rgba(29, 78, 216, 0.1);
+    --accent-border: rgba(29, 78, 216, 0.3);
+    --social-bg: #f1f5f9;
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+      rgba(0, 0, 0, 0.15) 0 10px 15px -3px, rgba(0, 0, 0, 0.1) 0 4px 6px -2px;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    #social .button-icon {
+      filter: invert(1) brightness(2);
+    }
   }
 }
 

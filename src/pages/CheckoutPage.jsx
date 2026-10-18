@@ -81,14 +81,14 @@ export default function CheckoutPage() {
 
   if (step === 3) {
     return (
-      <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-slate-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto text-center">
-          <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
-          <h1 className="text-2xl font-bold text-slate-900 mb-2">Order Confirmed!</h1>
-          <p className="text-slate-600 mb-8">Thank you for your purchase. Your games are ready to download.</p>
+          <Shield className="mx-auto h-12 w-12 text-green-400 mb-4" />
+          <h1 className="text-2xl font-bold text-slate-100 mb-2">Order Confirmed!</h1>
+          <p className="text-slate-400 mb-8">Thank you for your purchase. Your games are ready to download.</p>
           <Link
             to="/orders/current"
-            className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+            className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-500 transition-colors"
           >
             View Orders
           </Link>
@@ -101,7 +101,7 @@ export default function CheckoutPage() {
   const isStep2 = step === 2
 
   return (
-    <main className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-900 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
         {/* Progress Steps */}
         <div className="flex items-center justify-between mb-8">
@@ -111,26 +111,26 @@ export default function CheckoutPage() {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
                   step >= s
                     ? 'bg-indigo-600 text-white'
-                    : 'bg-slate-100 text-slate-400'
+                    : 'bg-slate-800 text-slate-400'
                 }`}
               >
                 {s}
               </div>
-              {s < 3 && <div className={`h-1 mx-2 ${step > s ? 'bg-indigo-600' : 'bg-slate-300'}`} />}
-              <span className={`text-sm font-medium ${step >= s ? 'text-indigo-600' : 'text-slate-500'}`}>
+              {s < 3 && <div className={`h-1 mx-2 ${step > s ? 'bg-indigo-600' : 'bg-slate-700'}`} />}
+              <span className={`text-sm font-medium ${step >= s ? 'text-indigo-400' : 'text-slate-500'}`}>
                 {s === 1 ? 'Details' : s === 2 ? 'Payment' : 'Complete'}
               </span>
             </div>
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-slate-300 p-8 shadow-sm space-y-6">
+        <form onSubmit={handleSubmit} className="bg-slate-800 rounded-xl border border-slate-700 p-8 shadow-sm space-y-6">
           {/* Step 1: Customer Details */}
           <div className={`space-y-4 ${isStep1 ? '' : 'hidden'}`}>
-            <h2 className="text-lg font-bold text-slate-900 mb-4">Delivery Details</h2>
+            <h2 className="text-lg font-bold text-slate-100 mb-4">Delivery Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   Full Name
                 </label>
                 <input
@@ -139,14 +139,14 @@ export default function CheckoutPage() {
                   value={formData.name}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.name ? 'border-red-500' : 'border-slate-300'
+                    errors.name ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="John Doe"
                 />
                 {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   Email
                 </label>
                 <input
@@ -155,7 +155,7 @@ export default function CheckoutPage() {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.email ? 'border-red-500' : 'border-slate-300'
+                    errors.email ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="you@example.com"
                 />
@@ -163,7 +163,7 @@ export default function CheckoutPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Delivery Address
               </label>
                 <input
@@ -172,7 +172,7 @@ export default function CheckoutPage() {
                   value={formData.address}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.address ? 'border-red-500' : 'border-slate-300'
+                    errors.address ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="123 Street, Area"
                 />
@@ -180,7 +180,7 @@ export default function CheckoutPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   City
                 </label>
                 <input
@@ -189,14 +189,14 @@ export default function CheckoutPage() {
                   value={formData.city}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.city ? 'border-red-500' : 'border-slate-300'
+                    errors.city ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="City"
                 />
                 {errors.city && <p className="mt-1 text-xs text-red-600">{errors.city}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   Postal Code
                 </label>
                 <input
@@ -205,7 +205,7 @@ export default function CheckoutPage() {
                   value={formData.postalCode}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.postalCode ? 'border-red-500' : 'border-slate-300'
+                    errors.postalCode ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="110001"
                 />
@@ -214,7 +214,7 @@ export default function CheckoutPage() {
                 )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   Phone
                 </label>
                 <input
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.phone ? 'border-red-500' : 'border-slate-300'
+                    errors.phone ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="+91 98765 43210"
                 />
@@ -234,10 +234,10 @@ export default function CheckoutPage() {
 
           {/* Step 2: Payment */}
           <div className={`space-y-4 ${isStep2 ? '' : 'hidden'}`}>
-            <h2 className="text-lg font-bold text-slate-900 mb-4">Payment</h2>
+            <h2 className="text-lg font-bold text-slate-100 mb-4">Payment</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-300 mb-1">
                   Card Number
                 </label>
                 <input
@@ -246,7 +246,7 @@ export default function CheckoutPage() {
                   value={formData.cardNumber}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.cardNumber ? 'border-red-500' : 'border-slate-300'
+                    errors.cardNumber ? 'border-red-500' : 'border-slate-700'
                   }`}
                   placeholder="1234 5678 9012 3456"
                 />
@@ -256,7 +256,7 @@ export default function CheckoutPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
+                  <label className="block text-sm font-medium text-slate-300 mb-1">
                     Expiry
                   </label>
                   <input
@@ -265,14 +265,14 @@ export default function CheckoutPage() {
                     value={formData.expiry}
                     onChange={handleChange}
                     className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.expiry ? 'border-red-500' : 'border-slate-300'
+                      errors.expiry ? 'border-red-500' : 'border-slate-700'
                     }`}
                     placeholder="MM/YY"
                   />
                   {errors.expiry && <p className="mt-1 text-xs text-red-600">{errors.expiry}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
+                  <label className="block text-sm font-medium text-slate-300 mb-1">
                     CVV
                   </label>
                   <input
@@ -281,7 +281,7 @@ export default function CheckoutPage() {
                     value={formData.cvv}
                     onChange={handleChange}
                     className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.cvv ? 'border-red-500' : 'border-slate-300'
+                      errors.cvv ? 'border-red-500' : 'border-slate-700'
                     }`}
                     placeholder="123"
                   />
@@ -297,7 +297,7 @@ export default function CheckoutPage() {
               <button
                 type="button"
                 onClick={goBack}
-                className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-slate-400 hover:bg-slate-700 rounded-lg transition-colors"
               >
                 Back
               </button>

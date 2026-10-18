@@ -53,17 +53,17 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
-        <div className="bg-white rounded-xl border border-slate-300 p-8 shadow-sm">
+        <div className="bg-slate-800 rounded-xl border border-slate-700 p-8 shadow-sm">
           <div className="text-center mb-8">
-            <Shield className="mx-auto h-12 w-12 text-indigo-600 mb-4" />
-            <h2 className="text-2xl font-bold text-slate-900">Welcome Back</h2>
-            <p className="text-slate-600 mt-2">Sign in to your GameKada account</p>
+            <Shield className="mx-auto h-12 w-12 text-indigo-400 mb-4" />
+            <h2 className="text-2xl font-bold text-slate-100">Welcome Back</h2>
+            <p className="text-slate-400 mt-2">Sign in to your GameKada account</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Email Address
               </label>
               <input
@@ -72,7 +72,7 @@ export default function LoginPage() {
                 value={formData.email}
                 onChange={handleChange}
                 className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                  errors.email ? 'border-red-500' : 'border-slate-300'
+                  errors.email ? 'border-red-500' : 'border-slate-700'
                 }`}
                 placeholder="you@example.com"
               />
@@ -81,7 +81,7 @@ export default function LoginPage() {
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Password
               </label>
               <input
@@ -90,7 +90,7 @@ export default function LoginPage() {
                 value={formData.password}
                 onChange={handleChange}
                 className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                  errors.password ? 'border-red-500' : 'border-slate-300'
+                  errors.password ? 'border-red-500' : 'border-slate-700'
                 }`}
                 placeholder="••••••••"
               />
@@ -106,7 +106,7 @@ export default function LoginPage() {
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
-          <p className="mt-6 text-center text-sm text-slate-600">
+          <p className="mt-6 text-center text-sm text-slate-400">
             Don't have an account? <Link to="/" className="text-indigo-600 hover:underline">Create one</Link>
           </p>
         </div>
