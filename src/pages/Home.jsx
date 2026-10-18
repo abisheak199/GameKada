@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Grid, List } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import ProductCard from '../components/ProductCard'
+import { useGames } from '../hooks/useGames'
 
 export default function Home() {
+  const { games: filteredGames } = useGames()
+  const featuredGames = filteredGames.slice(0, 6)
+
   return (
     <main className="min-h-screen bg-slate-900">
       <section className="relative bg-[#020617] text-white py-16 px-4 overflow-hidden">
@@ -37,29 +42,14 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((id) => (
-              <div key={id} className="bg-slate-800 rounded-lg border border-slate-700 p-4 hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg mb-3 bg-slate-700">
-                  <span className="block w-full h-full flex items-center justify-center text-slate-500">
-                    🎮
-                  </span>
-                </div>
-                <span className="inline-block mb-1 px-2 py-0.5 text-xs font-medium text-indigo-400 bg-indigo-500/20 rounded">
-                  Action RPG
-                </span>
-                <Link
-                  to={`/products/${id}`}
-                  className="block mb-1 text-lg font-semibold text-slate-100 group-hover:text-indigo-400"
-                >
-                  Featured Game {id}
-                </Link>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-lg font-bold text-slate-100">
-                    ₹4,999
-                  </span>
-                </div>
-              </div>
+            {featuredGames.map((game) => (
+              <ProductCard key={game.id} game={game} />
             ))}
+            {featuredGames.length === 0 && (
+              <div className="col-span-full text-center py-20 text-slate-400">
+                No games available.
+              </div>
+            )}
           </div>
         </div>
       </section>
