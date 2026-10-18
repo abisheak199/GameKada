@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const RAWG_BASE_URL = 'https://api.rawg.io/api'
+const RAWG_BASE_URL = import.meta.env.DEV ? '/api/rawg' : 'https://api.rawg.io/api'
 const API_KEY = import.meta.env.VITE_RAWG_API_KEY
 
 const api = axios.create({

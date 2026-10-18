@@ -234,10 +234,16 @@ if (error) {
 
 ## How to Enable API Mode
 
-1. Get a free API key at https://rawg.io/apidocs
+1. Get a free API key at https://rawg.io/apidocs (use `http://localhost:5173` as the site URL)
 2. Copy `.env.example` to `.env`
 3. Add your key: `VITE_RAWG_API_KEY=your_actual_key`
 4. Set `VITE_DATA_SOURCE=api`
 5. Restart the dev server: `npm run dev`
 
 Without an API key, the app continues to work with local data seamlessly.
+
+## API Status
+- RAWG API key configured and working
+- Vite proxy routes `/api/rawg` → `https://api.rawg.io/api` (bypasses CORS in browser)
+- Dev server proxies API requests to avoid CORS issues
+- Local data fallback if API fails
