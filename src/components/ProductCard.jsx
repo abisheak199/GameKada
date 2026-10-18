@@ -38,9 +38,9 @@ export default function ProductCard({ game }) {
       </div>
       <button
         onClick={handleAddToCart}
-        className="w-full mt-auto px-3 py-2 bg-indigo-600 text-white text-xs font-medium rounded hover:bg-indigo-500 transition-colors"
+        className="w-full mt-auto flex items-center justify-center gap-1.5 px-3 py-2 bg-indigo-600 text-white text-xs font-medium rounded hover:bg-indigo-500 transition-colors"
       >
-        <ShoppingCart size={14} className="mr-1" /> Add to Cart
+        <ShoppingCart size={14} /> Add to Cart
       </button>
     </article>
   )

@@ -66,14 +66,14 @@ export default function CartPage() {
                   <span className="block mt-1 text-sm text-slate-400">
                     {formatINR(item.price)} each
                   </span>
-                  <div className="mt-4 flex items-center gap-4">
+                  <div className="mt-4 flex items-center justify-center gap-4">
                     <button
                       onClick={() => handleUpdate(item.id, item.quantity - 1)}
                       disabled={item.quantity <= 1}
                       className="w-8 h-8 rounded border border-slate-700 flex items-center justify-center hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
                       aria-label="Decrease quantity"
                     >
-                      <Minus size={14} />
+                      <Minus size={14} className="self-center" />
                     </button>
                     <span className="w-8 text-center font-medium text-slate-100">
                       {item.quantity}
@@ -83,7 +83,7 @@ export default function CartPage() {
                       className="w-8 h-8 rounded border border-slate-700 flex items-center justify-center hover:bg-slate-700"
                       aria-label="Increase quantity"
                     >
-                      <Plus size={14} />
+                      <Plus size={14} className="self-center" />
                     </button>
                     <button
                       onClick={() => handleRemove(item.id)}
