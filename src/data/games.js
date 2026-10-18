@@ -27,7 +27,7 @@ export const games = [
       'A sweeping story of outlaw Arthur Morgan and the Van der Linde gang set across the American frontier in 1899. Features a richly detailed open world, deep character relationships, and a slow-burning narrative.',
     tags: ['Open World', 'Story-Rich', 'Western'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/9516.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/1174180/header.jpg',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const games = [
       'Follow Geralt of Rivia, a monster hunter for hire, as he searches for his adopted daughter in a war-torn world full of morally complex choices, branching quests, and detailed lore.',
     tags: ['Open World', 'Fantasy', 'Story-Rich'],
     inStock: true,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/The_Witcher_3_-_Standard_Edition_Unboxing_%28Official_Trailer%29_cover.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/292030/header.jpg',
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const games = [
       'A procedurally generated world of blocks where players mine resources, craft tools, build structures, and survive the night. No objectives — just imagination.',
     tags: ['Sandbox', 'Survival', 'Crafting'],
     inStock: true,
-    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Minecraft_Key-art.png/960px-Minecraft_Key-art.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/529290/header.jpg',
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ export const games = [
       'A challenging action RPG set in the kingdom of Lothric on the verge of ruin. Known for its demanding combat, intricate level design, and deeply buried lore told through item descriptions and environmental storytelling.',
     tags: ['Challenging', 'Dark Fantasy', 'Atmospheric'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/3721.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/374320/header.jpg',
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ export const games = [
       'A first-person puzzle game where players use a portal gun to create linked gateways and navigate through Aperture Science test chambers. Features a sharp single-player story and a full co-op campaign.',
     tags: ['Puzzle', 'Co-op', 'Sci-Fi'],
     inStock: true,
-    image: 'https://www.combineoverwiki.net/images/thumb/8/89/Portal_2_cover.jpg/477px-Portal_2_cover.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/620/header.jpg',
   },
   {
     id: 7,
@@ -102,7 +102,7 @@ export const games = [
       'Explore a vast underground kingdom of insects as a small, silent knight. Features hand-drawn art, challenging boss fights, and a sprawling map filled with hidden secrets and optional areas.',
     tags: ['Indie', 'Exploration', 'Challenging'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/4999.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/367520/header.jpg',
   },
   {
     id: 8,
@@ -117,7 +117,7 @@ export const games = [
       'Three criminals plan and execute heists across a modern, fictional version of Los Angeles. Switches between three protagonists with distinct personalities, skills, and story arcs.',
     tags: ['Open World', 'Crime', 'Heist'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/9626.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/271590/header.jpg',
   },
   {
     id: 9,
@@ -132,7 +132,7 @@ export const games = [
       'A precision platformer following Madeline as she climbs Celeste Mountain to overcome her inner demons. Known for tight controls, clever level design, and a heartfelt story about mental health.',
     tags: ['Indie', 'Challenging', 'Story-Rich'],
     inStock: true,
-    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Celeste_box_art_cropped.png/500px-Celeste_box_art_cropped.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/504230/header.jpg',
   },
   {
     id: 10,
@@ -147,7 +147,7 @@ export const games = [
       'A fast-paced roguelike dungeon crawler where you play as Zagreus, son of Hades, attempting to escape the Underworld. Each run unveils more of an evolving story told through dialogue and relationships.',
     tags: ['Roguelike', 'Greek Mythology', 'Action'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7863.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1145360/header.jpg',
   },
   {
     id: 11,
@@ -162,7 +162,7 @@ export const games = [
       'Inherit a run-down farm and rebuild it from scratch. Plant crops, raise animals, befriend townsfolk, mine for ore, and unravel the mystery of the ancient Junimo people.',
     tags: ['Farming', 'Relaxing', 'Indie'],
     inStock: true,
-    image: 'https://dn721803.ca.archive.org/0/items/stardew-valley-pc/stardew%20valley/cover.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/413150/header.jpg',
   },
   {
     id: 12,
@@ -192,7 +192,7 @@ export const games = [
       'Crewmates work to complete tasks on a spaceship while one or more Impostors try to eliminate them without being caught. Every round ends in a group vote to eject a suspected Impostor.',
     tags: ['Multiplayer', 'Party', 'Deduction'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7901.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/945360/header.jpg',
   },
   {
     id: 14,
@@ -207,7 +207,7 @@ export const games = [
       'A fantasy action RPG set in the Lands Between, where players explore a vast open world filled with legacy dungeons, powerful bosses, and deep lore crafted by Hidetaka Miyazaki and George R.R. Martin.',
     tags: ['Open World', 'Soulslike', 'Fantasy'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7820.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1245620/header.jpg',
   },
   {
     id: 15,
@@ -222,7 +222,7 @@ export const games = [
       'Kratos and his son Atreus embark on a journey through the Norse realms, combining brutal combat with a heartfelt father-son story in a reimagined God of War saga.',
     tags: ['Action', 'Adventure', 'Norse Mythology'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7771.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1593500/header.jpg',
   },
   {
     id: 16,
@@ -237,7 +237,7 @@ export const games = [
       'A first-person action RPG set in Night City, a sprawling megalopolis obsessed with power, glamour, and body modification. Play as V, a mercenary outlaw chasing a one-of-a-kind implant.',
     tags: ['Open World', 'Sci-Fi', 'First-Person'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7787.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1091500/header.jpg',
   },
   {
     id: 17,
@@ -252,7 +252,7 @@ export const games = [
       'Become Eivor, a Viking raider raised on tales of battle and glory. Lead your clan in a quest for glory across the mysterious and beautiful world of Dark Ages England.',
     tags: ['Open World', 'Vikings', 'Stealth'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/8031.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/1144440/header.jpg',
   },
   {
     id: 18,
@@ -267,7 +267,7 @@ export const games = [
       'Explore the vibrant open world of Mexico with limitless driving action in the ultimate Horizon festival. Hundreds of cars, dynamic seasons, and stunning landscapes await.',
     tags: ['Racing', 'Open World', 'Cars'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/8714.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1551360/header.jpg',
   },
   {
     id: 19,
@@ -282,7 +282,7 @@ export const games = [
       'Carve your own path to vengeance in an all-new adventure set in a dark reimagining of late 1500s Sengoku Japan. Master the prosthetic tools and shinobi combat to reclaim your honor.',
     tags: ['Soulslike', 'Stealth', 'Japan'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/6232.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/814420/header.jpg',
   },
   {
     id: 20,
@@ -297,7 +297,7 @@ export const games = [
       'Ethan Winters returns in a terrifying new nightmare set in a remote European village. Experience survival horror at its finest with realistic graphics and intense action.',
     tags: ['Horror', 'Action', 'First-Person'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/8475.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1218770/header.jpg',
   },
   {
     id: 21,
@@ -312,7 +312,7 @@ export const games = [
       'A genre-bending platform adventure built purely for co-op. Play as Cody and May, a couple turned into dolls by a magical spell, forced to work together to save their daughter.',
     tags: ['Co-op', 'Platformer', 'Family'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/13332.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1426210/header.jpg',
   },
   {
     id: 22,
@@ -327,7 +327,7 @@ export const games = [
       'A groundbreaking role-playing game where you play as a detective with a unique skill system. Solve a murder mystery in a decaying city through dialogue, choices, and internal monologue.',
     tags: ['Narrative', 'Detective', 'Isometric'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/8585.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/708510/header.jpg',
   },
   {
     id: 23,
@@ -342,7 +342,7 @@ export const games = [
       'Miles Morales steps into his own as Spider-Man in a snowy New York City. Master new bio-electric venom blast attacks and covert camouflage power while balancing his personal life.',
     tags: ['Superhero', 'Open World', 'Action'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/13926.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/1817190/header.jpg',
   },
   {
     id: 24,
@@ -357,7 +357,7 @@ export const games = [
       'Play as Hornet, protector of Hallownest, in this sequel to Hollow Knight. Discover new abilities, face challenging bosses, and explore a new kingdom ruled by silk and song.',
     tags: ['Indie', 'Action', 'Platformer'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/4999.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1030300/header.jpg',
   },
   {
     id: 25,
@@ -372,7 +372,7 @@ export const games = [
       'Kratos and Atreus journey through the Nine Realms as Ragnarök approaches. Face Norse gods, master new combat abilities, and confront fate itself in this epic conclusion.',
     tags: ['Action', 'Adventure', 'Norse Mythology'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/7771.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/2322010/header.jpg',
   },
   {
     id: 26,
@@ -387,7 +387,7 @@ export const games = [
       'A party-based RPG set in the Dungeons & Dragons Forgotten Realms. Create your origin, recruit companions, and shape a story of betrayal, sacrifice, and the lure of absolute power.',
     tags: ['Turn-Based', 'Fantasy', 'Co-op'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/10869.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/1086940/header.jpg',
   },
   {
     id: 27,
@@ -402,7 +402,7 @@ export const games = [
       'Peter Parker and Miles Morales swing through an expanded Marvel\'s New York. Face Venom, Kraven, and other iconic villains while mastering new web-wing traversal and symbiote powers.',
     tags: ['Superhero', 'Open World', 'Action'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/13926.png',
+    image: 'https://cdn.steamstatic.com/steam/apps/2651280/header.jpg',
   },
   {
     id: 28,
@@ -432,7 +432,7 @@ export const games = [
       'Aloy ventures into the forbidden west to uncover the mystery behind a deadly blight. Fight mechanical beasts, explore lush landscapes, and uncover ancient secrets.',
     tags: ['Open World', 'Sci-Fi', 'Action'],
     inStock: true,
-    image: 'https://images.steamgamecovers.com/large/13332.jpg',
+    image: 'https://cdn.steamstatic.com/steam/apps/2420110/header.jpg',
   },
   {
     id: 30,

@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --text: #1f2937;
-  --text-h: #111827;
+  --text: #0f172a;
+  --text-h: #020617;
   --bg: #ffffff;
-  --border: #d1d5db;
-  --code-bg: #f3f4f6;
-  --accent: #2563eb;
-  --accent-bg: rgba(37, 99, 235, 0.1);
-  --accent-border: rgba(37, 99, 235, 0.3);
-  --social-bg: #f3f4f6;
+  --border: #94a3b8;
+  --code-bg: #f1f5f9;
+  --accent: #1d4ed8;
+  --accent-bg: rgba(29, 78, 216, 0.1);
+  --accent-border: rgba(29, 78, 216, 0.3);
+  --social-bg: #f1f5f9;
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.15) 0 10px 15px -3px, rgba(0, 0, 0, 0.1) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/150% var(--sans);
+  font: 18px/160% var(--sans);
   letter-spacing: -0.01em;
   color-scheme: light;
   color: var(--text);
