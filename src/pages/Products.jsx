@@ -19,7 +19,38 @@ export default function Products() {
     setPriceFilter,
     sortBy,
     setSortBy,
+    dataSource,
+    isLoading,
+    error,
   } = useGames()
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-slate-900 py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-slate-400">Loading games from API...</p>
+        </div>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="min-h-screen bg-slate-900 py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-slate-400 mb-4">Failed to load games from API.</p>
+          <p className="text-slate-500 text-sm mb-6">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-500 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </main>
+    )
+  }
 
   return (
     <main className="min-h-screen bg-slate-900 py-8 px-4 sm:px-6 lg:px-8">
