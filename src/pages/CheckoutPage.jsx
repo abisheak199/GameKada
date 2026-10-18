@@ -85,7 +85,7 @@ export default function CheckoutPage() {
         <div className="max-w-md mx-auto text-center">
           <Shield className="mx-auto h-12 w-12 text-green-600 mb-4" />
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Order Confirmed!</h1>
-          <p className="text-gray-600 mb-8">Thank you for your purchase. Your games are ready to download.</p>
+          <p className="text-slate-600 mb-8">Thank you for your purchase. Your games are ready to download.</p>
           <Link
             to="/orders/current"
             className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
@@ -111,20 +111,20 @@ export default function CheckoutPage() {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
                   step >= s
                     ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-400'
+                    : 'bg-slate-100 text-slate-400'
                 }`}
               >
                 {s}
               </div>
-              {s < 3 && <div className={`h-1 mx-2 ${step > s ? 'bg-indigo-600' : 'bg-gray-200'}`} />}
-              <span className={`text-sm font-medium ${step >= s ? 'text-indigo-600' : 'text-gray-500'}`}>
+              {s < 3 && <div className={`h-1 mx-2 ${step > s ? 'bg-indigo-600' : 'bg-slate-300'}`} />}
+              <span className={`text-sm font-medium ${step >= s ? 'text-indigo-600' : 'text-slate-500'}`}>
                 {s === 1 ? 'Details' : s === 2 ? 'Payment' : 'Complete'}
               </span>
             </div>
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-slate-300 p-8 shadow-sm space-y-6">
           {/* Step 1: Customer Details */}
           <div className={`space-y-4 ${isStep1 ? '' : 'hidden'}`}>
             <h2 className="text-lg font-bold text-slate-900 mb-4">Delivery Details</h2>
@@ -139,7 +139,7 @@ export default function CheckoutPage() {
                   value={formData.name}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.name ? 'border-red-500' : 'border-gray-300'
+                    errors.name ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="John Doe"
                 />
@@ -155,7 +155,7 @@ export default function CheckoutPage() {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
+                    errors.email ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="you@example.com"
                 />
@@ -172,7 +172,7 @@ export default function CheckoutPage() {
                   value={formData.address}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.address ? 'border-red-500' : 'border-gray-300'
+                    errors.address ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="123 Street, Area"
                 />
@@ -189,7 +189,7 @@ export default function CheckoutPage() {
                   value={formData.city}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.city ? 'border-red-500' : 'border-gray-300'
+                    errors.city ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="City"
                 />
@@ -205,7 +205,7 @@ export default function CheckoutPage() {
                   value={formData.postalCode}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.postalCode ? 'border-red-500' : 'border-gray-300'
+                    errors.postalCode ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="110001"
                 />
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.phone ? 'border-red-500' : 'border-gray-300'
+                    errors.phone ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="+91 98765 43210"
                 />
@@ -246,7 +246,7 @@ export default function CheckoutPage() {
                   value={formData.cardNumber}
                   onChange={handleChange}
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.cardNumber ? 'border-red-500' : 'border-gray-300'
+                    errors.cardNumber ? 'border-red-500' : 'border-slate-300'
                   }`}
                   placeholder="1234 5678 9012 3456"
                 />
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
                     value={formData.expiry}
                     onChange={handleChange}
                     className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.expiry ? 'border-red-500' : 'border-gray-300'
+                      errors.expiry ? 'border-red-500' : 'border-slate-300'
                     }`}
                     placeholder="MM/YY"
                   />
@@ -281,7 +281,7 @@ export default function CheckoutPage() {
                     value={formData.cvv}
                     onChange={handleChange}
                     className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.cvv ? 'border-red-500' : 'border-gray-300'
+                      errors.cvv ? 'border-red-500' : 'border-slate-300'
                     }`}
                     placeholder="123"
                   />
@@ -292,12 +292,12 @@ export default function CheckoutPage() {
           </div>
 
           {/* Step 3 Buttons */}
-          <div className="flex justify-between items-center pt-6 border-t border-gray-200">
+          <div className="flex justify-between items-center pt-6 border-t border-slate-300">
             {step > 1 && (
               <button
                 type="button"
                 onClick={goBack}
-                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
               >
                 Back
               </button>

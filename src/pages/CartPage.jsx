@@ -23,9 +23,9 @@ export default function CartPage() {
     return (
       <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto text-center">
-          <ShoppingCart size={64} className="mx-auto text-gray-300 mb-6" />
+          <ShoppingCart size={64} className="mx-auto text-slate-300 mb-6" />
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Your cart is empty</h1>
-          <p className="text-gray-600 mb-8">Looks like you haven't added any games yet.</p>
+          <p className="text-slate-600 mb-8">Looks like you haven't added any games yet.</p>
           <button
             className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
             onClick={() => navigate('/products')}
@@ -54,7 +54,7 @@ export default function CartPage() {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-6">
             {cartItems.map((item) => (
-              <div key={item.id} className="flex gap-4 items-start rounded-lg border border-gray-200 bg-white p-4 hover:shadow-md transition-shadow">
+              <div key={item.id} className="flex gap-4 items-start rounded-lg border border-slate-300 bg-white p-4 hover:shadow-lg transition-shadow">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -63,14 +63,14 @@ export default function CartPage() {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
                   <span className="text-sm font-medium text-indigo-600">{item.genre}</span>
-                  <span className="block mt-1 text-sm text-gray-500">
+                  <span className="block mt-1 text-sm text-slate-500">
                     {formatINR(item.price)} each
                   </span>
                   <div className="mt-4 flex items-center gap-4">
                     <button
                       onClick={() => handleUpdate(item.id, item.quantity - 1)}
                       disabled={item.quantity <= 1}
-                      className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-8 h-8 rounded border border-slate-300 flex items-center justify-center hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
                       aria-label="Decrease quantity"
                     >
                       <Minus size={14} />
@@ -80,7 +80,7 @@ export default function CartPage() {
                     </span>
                     <button
                       onClick={() => handleUpdate(item.id, item.quantity + 1)}
-                      className="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                      className="w-8 h-8 rounded border border-slate-300 flex items-center justify-center hover:bg-slate-50"
                       aria-label="Increase quantity"
                     >
                       <Plus size={14} />
@@ -102,32 +102,32 @@ export default function CartPage() {
           </div>
 
           {/* Order Summary */}
-          <aside className="lg:col-span-1 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+          <aside className="lg:col-span-1 rounded-lg border border-slate-300 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900 mb-6">Order Summary</h2>
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Subtotal</span>
+                <span className="text-slate-600">Subtotal</span>
                 <span className="font-medium text-slate-900">{formatINR(subtotal)}</span>
               </div>
               {discount > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Discount (10%)</span>
+                  <span className="text-slate-600">Discount (10%)</span>
                   <span className="font-medium text-green-600">-{formatINR(discount)}</span>
                 </div>
               )}
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Delivery</span>
+                <span className="text-slate-600">Delivery</span>
                 <span className="font-medium text-slate-900">
                   {delivery === 0 ? 'FREE' : formatINR(delivery)}
                 </span>
               </div>
             </div>
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-slate-300">
               <div className="flex justify-between text-lg font-bold text-slate-900">
                 <span>Total</span>
                 <span>{formatINR(total)}</span>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-slate-500 mt-2">
                 Orders over ₹100 get 10% off. Free delivery on orders over ₹500.
               </p>
             </div>

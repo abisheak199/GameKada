@@ -26,7 +26,7 @@ export default function Products() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-8">
           <h1 className="text-2xl font-bold text-slate-900">All Games</h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-slate-600 mt-1">
             {filteredGames.length} games found
           </p>
         </header>
@@ -44,7 +44,7 @@ export default function Products() {
                   placeholder="Search by title..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
                 />
               </div>
 
@@ -58,7 +58,7 @@ export default function Products() {
                     className={`w-full text-left px-3 py-2 rounded border transition-colors ${
                       genreFilter === 'all'
                         ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                        : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+                        : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'
                     }`}
                   >
                     All Genres
@@ -68,10 +68,10 @@ export default function Products() {
                       key={genre}
                       onClick={() => setGenreFilter(genre)}
                       className={`w-full text-left px-3 py-2 rounded border transition-colors ${
-                        genreFilter === genre
-                          ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                          : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
-                      }`}
+                          genreFilter === genre
+                            ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                            : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'
+                        }`}
                     >
                       {genre}
                     </button>
@@ -91,7 +91,7 @@ export default function Products() {
                   onChange={(e) => setPriceFilter(Number(e.target.value))}
                   className="w-full accent-indigo-600"
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between text-xs text-slate-500 mt-1">
                   <span>₹{MIN_PRICE.toLocaleString('en-IN')}</span>
                   <span>₹{MAX_PRICE.toLocaleString('en-IN')}</span>
                 </div>
@@ -104,7 +104,7 @@ export default function Products() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-white"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-white"
                 >
                   <option value="name">Name (A-Z)</option>
                   <option value="price-low">Price: Low to High</option>
@@ -118,11 +118,11 @@ export default function Products() {
           {/* Product Grid */}
           <section className="lg:col-span-9">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-slate-600">
                 <Grid size={16} />
                 <span>Grid View</span>
               </div>
-              <div className="hidden lg:flex items-center gap-2 text-sm text-gray-600">
+              <div className="hidden lg:flex items-center gap-2 text-sm text-slate-600">
                 <span>Showing {filteredGames.length} results</span>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function Products() {
 
             {filteredGames.length === 0 && (
               <div className="text-center py-20">
-                <p className="text-gray-500">No games found matching your filters.</p>
+                <p className="text-slate-500">No games found matching your filters.</p>
                 <button
                   onClick={() => {
                     setSearch('')

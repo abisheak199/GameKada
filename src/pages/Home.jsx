@@ -3,7 +3,7 @@ import { ArrowRight, Grid, List } from 'lucide-react'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-white">
       <section className="relative bg-slate-900 text-white py-16 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <span className="inline-block mb-4 px-3 py-1 text-xs font-semibold tracking-wider text-indigo-300 bg-indigo-600/20 rounded-full">
@@ -38,9 +38,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((id) => (
-              <div key={id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden rounded-md mb-3 bg-gray-100">
-                  <span className="block w-full h-full flex items-center justify-center text-gray-400">
+              <div key={id} className="bg-white rounded-lg border border-slate-300 p-4 hover:shadow-lg transition-shadow">
+                <div className="aspect-[4/3] overflow-hidden rounded-lg mb-3 bg-slate-100">
+                  <span className="block w-full h-full flex items-center justify-center text-slate-400">
                     🎮
                   </span>
                 </div>
