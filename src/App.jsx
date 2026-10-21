@@ -12,6 +12,8 @@ import LoginPage from './pages/LoginPage'
 import OrdersPage, { OrdersCurrent, OrdersHistory } from './pages/OrdersNested'
 import PaymentSuccess from './pages/PaymentSuccess'
 import PaymentCancel from './pages/PaymentCancel'
+import Profile from './pages/Profile'
+import OrderDetail from './pages/OrderDetail'
 import './App.css'
 
 export default function App() {
@@ -29,6 +31,8 @@ export default function App() {
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-cancel" element={<PaymentCancel />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/orders/detail" element={<OrderDetail />} />
             <Route path="/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>}>
               <Route index element={<Navigate to="/orders/current" replace />} />
               <Route path="current" element={<OrdersCurrent />} />

@@ -5,7 +5,18 @@ const AuthContext = createContext(null)
 export function AuthProvider({ children }) {
   const storedToken = localStorage.getItem('gamekada_token')
   const storedUser = localStorage.getItem('gamekada_user')
-  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null)
+  const defaultUser = {
+    name: 'Guest User',
+    email: 'guest@example.com',
+    memberSince: new Date().getFullYear().toString(),
+    totalOrders: 0,
+    totalSpent: 0,
+    address: 'Not set',
+    phone: 'Not set',
+  }
+  const [user, setUser] = useState(
+    storedUser ? JSON.parse(storedUser) : defaultUser
+  )
   const [isAuthenticated, setIsAuthenticated] = useState(!!storedToken)
 
   const login = (userData, token) => {
