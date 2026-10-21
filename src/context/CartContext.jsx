@@ -42,6 +42,29 @@ export function CartProvider({ children }) {
     setCartItems([])
   }, [])
 
+  // Orders
+  const [orders, setOrders] = useState([])
+
+  const placeOrder = useCallback((orderData) => {
+    const order = {
+      id: 'ORD-' + Date.now(),
+      date: new Date().toISOString(),
+      status: 'Processing',
+      ...orderData,
+      items: cartItems.map((item) => ({
+        id: item.id,
+        title: item.title,
+        image: item.image,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+    }
+    setOrders((prev) => [order, ...prev])
+    localStorage.setItem('gamekada_orders', JSON.stringify([order, ...prev]))
+    clearCart()
+    return order
+  }, [cartItems, clearCart])
+
   // Derived values
   const { subtotal, discount, delivery, total, itemCount } = useMemo(() => {
     const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -58,6 +81,9 @@ export function CartProvider({ children }) {
     removeFromCart,
     updateQuantity,
     clearCart,
+    placeOrder,
+    orders,
+    setOrders,
     subtotal,
     discount,
     delivery,

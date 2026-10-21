@@ -1,8 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Shield, CreditCard, Truck } from 'lucide-react'
+import PaymentForm from '../components/PaymentForm'
+import { useCart } from '../context/CartContext'
 
 export default function CheckoutPage() {
   const navigate = useNavigate()
+  const { cartItems, total, placeOrder } = useCart()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,13 +13,11 @@ export default function CheckoutPage() {
     city: '',
     postalCode: '',
     phone: '',
-    cardNumber: '',
-    expiry: '',
-    cvv: '',
   })
   const [errors, setErrors] = useState({})
   const [step, setStep] = useState(1) // 1: details, 2: payment, 3: confirmation
   const [isLoading, setIsLoading] = useState(false)
+  const [paymentError, setPaymentError] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -43,11 +44,6 @@ export default function CheckoutPage() {
       if (!formData.postalCode) newErrors.postalCode = 'Postal code is required'
       if (!formData.phone) newErrors.phone = 'Phone number is required'
     }
-    if (currentStep === 2) {
-      if (!formData.cardNumber) newErrors.cardNumber = 'Card number is required'
-      if (!formData.expiry) newErrors.expiry = 'Expiry date is required'
-      if (!formData.cvv) newErrors.cvv = 'CVV is required'
-    }
     return newErrors
   }
 
@@ -60,23 +56,49 @@ export default function CheckoutPage() {
         setStep(2)
       }
     } else if (step === 2) {
-      const validationErrors = validateStep(2)
-      setErrors(validationErrors)
-      if (Object.keys(validationErrors).length === 0) {
-        setIsLoading(true)
-        setTimeout(() => {
-          setIsLoading(false)
-          setStep(3)
-        }, 1000)
-      }
+      setIsLoading(true)
+      setPaymentError(null)
+      setTimeout(() => {
+        setIsLoading(false)
+        setStep(3)
+      }, 1000)
     } else {
       // Order confirmed
+      placeOrder({
+        customerName: formData.name,
+        customerEmail: formData.email,
+        address: formData.address,
+        city: formData.city,
+        postalCode: formData.postalCode,
+        phone: formData.phone,
+        total,
+        paymentStatus: 'Paid',
+      })
       navigate('/orders/current')
     }
   }
 
   const goBack = () => {
     if (step > 1) setStep(step - 1)
+  }
+
+  const handlePaymentSuccess = (paymentId) => {
+    const order = placeOrder({
+      customerName: formData.name,
+      customerEmail: formData.email,
+      address: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      phone: formData.phone,
+      total,
+      paymentStatus: 'Paid',
+      paymentId,
+    })
+    navigate(`/payment-success?paymentId=${paymentId}&orderId=${order.id}&amount=${total}`)
+  }
+
+  const handlePaymentCancel = () => {
+    navigate(`/payment-cancel?error=${encodeURIComponent('Payment was cancelled. No charges were made.')}`)
   }
 
   if (step === 3) {
@@ -96,9 +118,6 @@ export default function CheckoutPage() {
       </main>
     )
   }
-
-  const isStep1 = step === 1
-  const isStep2 = step === 2
 
   return (
     <main className="min-h-screen bg-slate-900 py-8 px-4 sm:px-6 lg:px-8">
@@ -124,9 +143,8 @@ export default function CheckoutPage() {
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-slate-800 rounded-xl border border-slate-700 p-8 shadow-sm space-y-6">
-          {/* Step 1: Customer Details */}
-          <div className={`space-y-4 ${isStep1 ? '' : 'hidden'}`}>
+        {step === 1 && (
+          <form onSubmit={handleSubmit} className="bg-slate-800 rounded-xl border border-slate-700 p-8 shadow-sm space-y-6">
             <h2 className="text-lg font-bold text-slate-100 mb-4">Delivery Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -166,17 +184,17 @@ export default function CheckoutPage() {
               <label className="block text-sm font-medium text-slate-300 mb-1">
                 Delivery Address
               </label>
-                <input
-                  type="text"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.address ? 'border-red-500' : 'border-slate-700'
-                  }`}
-                  placeholder="123 Street, Area"
-                />
-                {errors.address && <p className="mt-1 text-xs text-red-600">{errors.address}</p>}
+              <input
+                type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
+                  errors.address ? 'border-red-500' : 'border-slate-700'
+                }`}
+                placeholder="123 Street, Area"
+              />
+              {errors.address && <p className="mt-1 text-xs text-red-600">{errors.address}</p>}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
@@ -209,9 +227,7 @@ export default function CheckoutPage() {
                   }`}
                   placeholder="110001"
                 />
-                {errors.postalCode && (
-                  <p className="mt-1 text-xs text-red-600">{errors.postalCode}</p>
-                )}
+                {errors.postalCode && <p className="mt-1 text-xs text-red-600">{errors.postalCode}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-1">
@@ -230,70 +246,7 @@ export default function CheckoutPage() {
                 {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone}</p>}
               </div>
             </div>
-          </div>
-
-          {/* Step 2: Payment */}
-          <div className={`space-y-4 ${isStep2 ? '' : 'hidden'}`}>
-            <h2 className="text-lg font-bold text-slate-100 mb-4">Payment</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1">
-                  Card Number
-                </label>
-                <input
-                  type="text"
-                  name="cardNumber"
-                  value={formData.cardNumber}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                    errors.cardNumber ? 'border-red-500' : 'border-slate-700'
-                  }`}
-                  placeholder="1234 5678 9012 3456"
-                />
-                {errors.cardNumber && (
-                  <p className="mt-1 text-xs text-red-600">{errors.cardNumber}</p>
-                )}
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">
-                    Expiry
-                  </label>
-                  <input
-                    type="text"
-                    name="expiry"
-                    value={formData.expiry}
-                    onChange={handleChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.expiry ? 'border-red-500' : 'border-slate-700'
-                    }`}
-                    placeholder="MM/YY"
-                  />
-                  {errors.expiry && <p className="mt-1 text-xs text-red-600">{errors.expiry}</p>}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">
-                    CVV
-                  </label>
-                  <input
-                    type="text"
-                    name="cvv"
-                    value={formData.cvv}
-                    onChange={handleChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none ${
-                      errors.cvv ? 'border-red-500' : 'border-slate-700'
-                    }`}
-                    placeholder="123"
-                  />
-                  {errors.cvv && <p className="mt-1 text-xs text-red-600">{errors.cvv}</p>}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Step 3 Buttons */}
-          <div className="flex justify-between items-center pt-6 border-t border-slate-300">
-            {step > 1 && (
+            <div className="flex justify-between items-center pt-6 border-t border-slate-700">
               <button
                 type="button"
                 onClick={goBack}
@@ -301,21 +254,33 @@ export default function CheckoutPage() {
               >
                 Back
               </button>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`px-6 py-3 text-white font-medium rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-indigo-600`}
+              >
+                Continue to Payment
+              </button>
+            </div>
+          </form>
+        )}
+
+        {step === 2 && (
+          <div className="bg-slate-800 rounded-xl border border-slate-700 p-8 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-100 mb-6">Payment</h2>
+            <PaymentForm
+              amount={total}
+              onSuccess={handlePaymentSuccess}
+              onCancel={handlePaymentCancel}
+            />
+            {paymentError && (
+              <div className="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                {paymentError}
+              </div>
             )}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`px-6 py-3 text-white font-medium rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors ${
-                step < 3 ? 'bg-indigo-600' : 'bg-green-600'
-              }`}
-            >
-              {isLoading ? 'Processing...' : step < 3 ? 'Continue to Payment' : 'Confirm Order'}
-            </button>
           </div>
-        </form>
+        )}
       </div>
     </main>
   )
 }
-
-import { useState } from 'react'

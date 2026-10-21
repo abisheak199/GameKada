@@ -224,7 +224,7 @@ export default function Home() {
                     ₹4,999
                   </span>
                 </div>
-              </div>
+iiiiio,              </div>
             ))}
           </div>
         </div>
@@ -402,7 +402,7 @@ Individual product page with breadcrumb, large cover image, title, price, rating
 
 ```jsx
 import { useParams } from 'react-router-dom'
-import { useGames } from '../hooks/useGames'
+import { useGames } from '../hooks/useGames'
 import { Star, ShoppingCart } from 'lucide-react'
 
 export default function ProductDetail() {
