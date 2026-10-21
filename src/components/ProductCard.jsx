@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom'
 import { Star, ShoppingCart } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import WishlistButton from './WishlistButton'
 
 export default function ProductCard({ game }) {
   const { addToCart } = useCart()
   const handleAddToCart = () => addToCart(game)
   return (
     <article className="group flex flex-col h-full rounded-lg border border-slate-700 bg-slate-800 p-4 hover:shadow-lg transition-shadow">
-      <div className="aspect-[4/5] overflow-hidden rounded-lg bg-slate-700 mb-3 flex-shrink-0">
+      <div className="aspect-[4/5] overflow-hidden rounded-lg bg-slate-700 mb-3 flex-shrink-0 relative">
         <img
           src={game.image}
           alt={game.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />
+        <WishlistButton game={game} />
       </div>
       <span className="inline-block mb-1 px-2 py-0.5 text-xs font-medium text-indigo-400 bg-indigo-500/20 rounded">
         {game.genre}

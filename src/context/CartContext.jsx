@@ -44,6 +44,18 @@ export function CartProvider({ children }) {
 
   // Orders
   const [orders, setOrders] = useState([])
+  const [wishlist, setWishlist] = useState([])
+
+  const addToWishlist = useCallback((game) => {
+    setWishlist((prev) => {
+      if (prev.some((item) => item.id === game.id)) return prev
+      return [...prev, { ...game }]
+    })
+  }, [])
+
+  const removeFromWishlist = useCallback((id) => {
+    setWishlist((prev) => prev.filter((item) => item.id !== id))
+  }, [])
 
   const placeOrder = useCallback((orderData) => {
     const order = {
@@ -84,6 +96,9 @@ export function CartProvider({ children }) {
     placeOrder,
     orders,
     setOrders,
+    wishlist,
+    addToWishlist,
+    removeFromWishlist,
     subtotal,
     discount,
     delivery,

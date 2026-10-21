@@ -14,6 +14,8 @@ import PaymentSuccess from './pages/PaymentSuccess'
 import PaymentCancel from './pages/PaymentCancel'
 import Profile from './pages/Profile'
 import OrderDetail from './pages/OrderDetail'
+import Wishlist from './pages/Wishlist'
+import Admin from './pages/Admin'
 import './App.css'
 
 export default function App() {
@@ -33,6 +35,8 @@ export default function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/orders/detail" element={<OrderDetail />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>}>
               <Route index element={<Navigate to="/orders/current" replace />} />
               <Route path="current" element={<OrdersCurrent />} />
