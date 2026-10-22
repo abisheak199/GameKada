@@ -44,8 +44,17 @@ export default function LoginPage() {
       setIsLoading(true)
       // Simulate API login
       setTimeout(() => {
-        localStorage.setItem('gamekada_token', 'mock-jwt-token')
-        localStorage.setItem('gamekada_user', JSON.stringify({ email: formData.email }))
+        const token = 'mock-jwt-token'
+        const userData = { email: formData.email }
+        localStorage.setItem('gamekada_token', token)
+        localStorage.setItem('gamekada_user', JSON.stringify(userData))
+        console.log('=== LOGIN SUBMIT ===')
+        console.log('Email:', formData.email)
+        console.log('Token:', token)
+        console.log('User Data:', userData)
+        console.log('Stored in localStorage - token:', localStorage.getItem('gamekada_token'))
+        console.log('Stored in localStorage - user:', localStorage.getItem('gamekada_user'))
+        console.log('===================')
         setIsLoading(false)
         navigate('/')
       }, 1000)

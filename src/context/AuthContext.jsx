@@ -24,6 +24,12 @@ export function AuthProvider({ children }) {
     localStorage.setItem('gamekada_user', JSON.stringify(userData))
     setUser(userData)
     setIsAuthenticated(true)
+    console.log('=== AUTH LOGIN ===')
+    console.log('Token:', token)
+    console.log('User:', userData)
+    console.log('Full localStorage token:', localStorage.getItem('gamekada_token'))
+    console.log('Full localStorage user:', localStorage.getItem('gamekada_user'))
+    console.log('==================')
   }
 
   const logout = () => {
@@ -31,6 +37,10 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('gamekada_user')
     setUser(null)
     setIsAuthenticated(false)
+    console.log('=== AUTH LOGOUT ===')
+    console.log('Token cleared:', localStorage.getItem('gamekada_token'))
+    console.log('User cleared:', localStorage.getItem('gamekada_user'))
+    console.log('==================')
   }
 
   const value = {
