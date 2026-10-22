@@ -53,21 +53,30 @@ export const fetchPlatforms = async () => {
 
 // Map RAWG API response to the app's internal game format
 export const mapRawgGameToInternal = (rawgGame) => {
+  // RAWG rating is 0-5; metacritic is 0-100 (often missing in list endpoint)
+  const starRating = rawgGame.rating ? parseFloat(rawgGame.rating.toFixed(1)) : 4.0
+  // Generate a realistic INR price from rating (₹830 – ₹5999)
+  const basePrice = rawgGame.metacritic
+    ? Math.round(rawgGame.metacritic * 59.99)
+    : Math.round(starRating * 1000 + 500)
+  const price = Math.min(Math.max(basePrice, 299), 5999)
+
   return {
     id: rawgGame.id,
     title: rawgGame.name,
     genre: rawgGame.genres?.[0]?.name || 'Action',
     platform: rawgGame.platforms?.[0]?.platform?.name || 'PC',
-    price: Math.round(rawgGame.metacritic ? rawgGame.metacritic * 10 : 1000),
-    rating: rawgGame.metacritic ? rawgGame.metacritic / 20 : 4.0,
+    price,
+    rating: starRating,
     releaseYear: rawgGame.released ? new Date(rawgGame.released).getFullYear() : 2024,
     developer: rawgGame.developers?.[0]?.name || 'Unknown',
     description: rawgGame.description_raw || rawgGame.description || 'No description available.',
-    tags: rawgGame.tags?.map((t) => t.name) || [],
+    tags: rawgGame.tags?.slice(0, 4).map((t) => t.name) || [],
     inStock: true,
     image: rawgGame.background_image || '',
   }
 }
+
 
 export const isApiConfigured = () => {
   return !!(API_KEY && API_KEY !== 'your_rawg_api_key_here')

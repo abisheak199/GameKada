@@ -38,10 +38,12 @@ export function useGames() {
           const platforms = await fetchPlatforms()
           setPlatforms(platforms.map((p) => p.name))
         } catch (err) {
-          setError(err.message)
+          // API failed — silently fall back to local data (don't block the UI with error screen)
+          console.warn('[GameKada] RAWG API failed, falling back to local data:', err.message)
           setAllGames(localGames)
           setGenres(localGenres)
           setPlatforms(localPlatforms)
+          setError(null) // clear error so Products page still renders
         } finally {
           setIsLoading(false)
         }

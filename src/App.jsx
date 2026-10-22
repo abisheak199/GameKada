@@ -20,7 +20,7 @@ import './App.css'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/GameKada-GameShop/">
       <AuthProvider>
         <CartProvider>
           <Navbar />
@@ -34,9 +34,9 @@ export default function App() {
             <Route path="/payment-cancel" element={<PaymentCancel />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="/orders/detail" element={<OrderDetail />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/orders/detail" element={<ProtectedRoute><OrderDetail /></ProtectedRoute>} />
+            <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
             <Route path="/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>}>
               <Route index element={<Navigate to="/orders/current" replace />} />
               <Route path="current" element={<OrdersCurrent />} />
