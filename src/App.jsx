@@ -20,7 +20,7 @@ import './App.css'
 
 export default function App() {
   return (
-    <BrowserRouter basename="/GameKada-GameShop/">
+    <BrowserRouter basename="/GameKada/">
       <AuthProvider>
         <CartProvider>
           <Navbar />

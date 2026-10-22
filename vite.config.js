@@ -14,5 +14,5 @@ export default defineConfig({
       },
     },
   },
-  base: '/GameKada/',
+  base: process.env.BASE_PATH || '/',
 })
