@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GameKada - Redirecting...</title>
+  <script>
+    // Single Page Apps for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+
+    (function(l) {
+      var segments = l.pathname.split('/');
+      if (segments.length > 2 && segments[1] === 'GameKada-GameShop') {
+        // Store the original path in sessionStorage
+        var originalPath = segments.slice(2).join('/');
+        sessionStorage.setItem('gamekada-redirect', originalPath);
+        // Redirect to index.html with the original path as a query param
+        l.replace('/GameKada-GameShop/?redirect=' + encodeURIComponent(originalPath));
+      }
+    })(window.location);
+  </script>
+</head>
+<body>
+  <p>Redirecting to GameKada...</p>
+</body>
+</html>
