@@ -14,5 +14,5 @@ export default defineConfig({
       },
     },
   },
-  base: '/GameKada-GameShop/',
+  base: '/GameKada/',
 })
