@@ -15,7 +15,7 @@
         var originalPath = segments.slice(2).join('/');
         sessionStorage.setItem('gamekada-redirect', originalPath);
         // Redirect to index.html with the original path as a query param
-        l.replace('/GameKada-GameShop/?redirect=' + encodeURIComponent(originalPath));
+        l.replace('/GameKada/?redirect=' + encodeURIComponent(originalPath));
       }
     })(window.location);
   </script>
